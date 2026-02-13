@@ -2,8 +2,14 @@ import { useState } from 'react';
 import { getLocalStorageItem, setLocalStorageItem } from '../local-storage-utils';
 
 const Modal = () => {
- const [isOpen, setisOpen] = useState(getLocalStorageItem("isOpen") || false);
- 
+
+ const getIsOpenValue = () => {
+    let val = getLocalStorageItem("isOpen") || false;
+    console.log("value is: ", val);
+    return val;
+ }
+ const [isOpen, setisOpen] = useState(getIsOpenValue);
+
  const handleToggle = () => {
     const newValue = !isOpen;
     setisOpen(newValue);
